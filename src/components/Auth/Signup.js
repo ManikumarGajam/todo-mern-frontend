@@ -1,3 +1,4 @@
+// frontend/src/components/auth/Signup.js
 import React, { useState, useRef, useEffect } from 'react';
 import API from '../../api';
 import { toast } from 'react-toastify';
@@ -87,7 +88,6 @@ export default function Signup() {
             className="input-underline"
           />
           <button type="submit" className="fancy-btn w-100 mt-4">Sign Up</button>
-
           <p className="text-center mt-3">
             Already have an account?{' '}
             <button
@@ -99,10 +99,9 @@ export default function Signup() {
             </button>
           </p>
         </form>
-
       ) : (
         <form onSubmit={handleVerifyOtp} className="frosted-card col-10 col-md-5 col-lg-4 mx-auto p-4">
-          <h3 className="login-title mb-3" >Enter Verification Code</h3>
+          <h3 className="login-title mb-3">Enter Verification Code</h3>
           <p>Code sent to <b>{email}</b></p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '15px' }}>
             {otp.map((value, index) => (
@@ -120,9 +119,10 @@ export default function Signup() {
             ))}
           </div>
           <button type="submit" className="fancy-btn w-100 mt-2 mb-2">Verify OTP</button>
-
           {timeLeft > 0 ? (
-            <p className="text-center text-muted">Resend code in 0:{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</p>
+            <p className="text-center text-muted">
+              Resend code in 0:{timeLeft < 10 ? `0${timeLeft}` : timeLeft}
+            </p>
           ) : (
             <p className="text-center">
               Didn't receive?{' '}

@@ -1,3 +1,4 @@
+// frontend/src/components/auth/Login.js
 import React, { useState } from 'react';
 import API from '../../api';
 import { useNavigate } from 'react-router-dom';
@@ -23,40 +24,38 @@ export default function Login() {
   return (
     <div className="glass-bg d-flex align-items-center justify-content-center vh-100">
       <form onSubmit={handleLogin} className="frosted-card px-4 py-5">
-  <h2 className="login-title mb-4">LOGIN</h2>
-  <div className="mb-4">
-    <input
-      type="email"
-      className="input-underline"
-      placeholder="Username"
-      value={email}
-      onChange={e => setEmail(e.target.value)}
-      required
-      autoFocus
-    />
-  </div>
-  <div className="mb-4">
-    <input
-      type="password"
-      className="input-underline"
-      placeholder="Password"
-      value={password}
-      onChange={e => setPassword(e.target.value)}
-      required
-    />
-  </div>
-  <button type="submit" className="fancy-btn w-100 mt-2 mb-3">SIGN IN</button>
-  
-  <div className="forgot-link d-flex justify-content-center">
-    <a href="/forgot-password" className="text-info fw-bold">Forget Password?</a>
-  </div>
-  <div className="d-flex justify-content-center"><span>_______________________________</span></div>
-  <div className="text-center mt-3">
-    <span className="me-1">Don't have an account?</span>
-    <a href="/signup" className="text-info fw-semibold">Sign up here</a>
-  </div>
-</form>
-
+        <h2 className="login-title mb-4">LOGIN</h2>
+        <div className="mb-4">
+          <input
+            type="email"
+            className="input-underline"
+            placeholder="Username"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+            autoFocus
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="password"
+            className="input-underline"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="fancy-btn w-100 mt-2 mb-3">SIGN IN</button>
+        <div className="forgot-link d-flex justify-content-center">
+          <a href="/forgot-password" className="text-info fw-bold">Forget Password?</a>
+        </div>
+        <div className="d-flex justify-content-center"><span>_______________________________</span></div>
+        <div className="text-center mt-3">
+          <span className="me-1">Don't have an account?</span>
+          <a href="/signup" className="text-info fw-semibold">Sign up here</a>
+        </div>
+      </form>
     </div>
   );
 }
