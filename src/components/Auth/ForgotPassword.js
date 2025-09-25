@@ -75,7 +75,7 @@ export default function ForgotPassword() {
             }}
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
-            {showPassword ? '🙈' : '👁️'}
+            {showPassword ? '👁️' : '🙈'}
           </button>
         </div>
 

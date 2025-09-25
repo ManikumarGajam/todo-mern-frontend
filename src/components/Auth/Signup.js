@@ -110,7 +110,7 @@ export default function Signup() {
               }}
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
-              {showPassword ? '🙈' : '👁️'}
+              {showPassword ? '👁️' : '🙈' }
             </button>
           </div>
 
@@ -128,19 +128,22 @@ export default function Signup() {
       ) : (
         <form onSubmit={handleVerifyOtp} className="frosted-card col-10 col-md-5 col-lg-4 mx-auto p-4">
           <button
-            type="button"
-            onClick={() => navigate('/signup')}
-            style={{
-              background: 'transparent',
-              border: 'none',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-               color: 'white', 
-            }}
-            aria-label="Cancel"
-          >
-            &times;
-          </button>
+    type="button"
+    onClick={() => navigate('/signup')}
+    style={{
+      position: 'absolute',
+      top: '10px',
+      right: '10px',
+      background: 'transparent',
+      border: 'none',
+      fontSize: '1.5rem',
+      cursor: 'pointer',
+      color: 'white',
+    }}
+    aria-label="Cancel"
+  >
+    &times;
+  </button>
           <h3 className="login-title mb-3">Enter Verification Code</h3>
           <p>
             Code sent to <b>{email}</b>

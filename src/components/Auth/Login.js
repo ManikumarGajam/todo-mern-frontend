@@ -60,7 +60,7 @@ export default function Login() {
             }}
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
-            {showPassword ? '🙈' : '👁️'}
+            {showPassword ? '👁️' : '🙈'}
           </button>
         </div>
         <button type="submit" className="fancy-btn w-100 mt-2 mb-3">SIGN IN</button>
