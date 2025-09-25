@@ -4,6 +4,8 @@ import API from '../../api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+const [loading, setLoading] = useState(false);
+
 const OTP_RESEND_TIME = 10; // seconds
 
 export default function Signup() {
@@ -25,6 +27,7 @@ export default function Signup() {
   }, [otpSent, timeLeft]);
 
   const sendOtp = async () => {
+    setLoading(true);
     try {
       await API.post('/auth/signup', { email, password });
       toast.success("OTP sent to your email");
@@ -32,8 +35,11 @@ export default function Signup() {
       setTimeLeft(OTP_RESEND_TIME);
     } catch (error) {
       toast.error(error.response?.data?.message || 'Failed to send OTP');
+    } finally {
+      setLoading(false);
     }
   };
+
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -87,7 +93,10 @@ export default function Signup() {
             required
             className="input-underline"
           />
-          <button type="submit" className="fancy-btn w-100 mt-4">Sign Up</button>
+          <button type="submit" className="fancy-btn w-100 mt-4" disabled={loading}>
+            {loading ? "Sending OTP..." : "Sign Up"}
+          </button>
+
           <p className="text-center mt-3">
             Already have an account?{' '}
             <button
