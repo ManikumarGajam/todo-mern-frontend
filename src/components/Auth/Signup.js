@@ -4,11 +4,11 @@ import API from '../../api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-const [loading, setLoading] = useState(false);
 
 const OTP_RESEND_TIME = 10; // seconds
 
 export default function Signup() {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [otp, setOtp] = useState(['', '', '', '']);
