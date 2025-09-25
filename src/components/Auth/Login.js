@@ -1,4 +1,3 @@
-// frontend/src/components/auth/Login.js
 import React, { useState } from 'react';
 import API from '../../api';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { toast } from 'react-toastify';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async e => {
@@ -36,15 +36,32 @@ export default function Login() {
             autoFocus
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4" style={{ position: 'relative' }}>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             className="input-underline"
             placeholder="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
           />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              border: 'none',
+              background: 'transparent',
+              cursor: 'pointer',
+              fontSize: '1.2rem'
+            }}
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </button>
         </div>
         <button type="submit" className="fancy-btn w-100 mt-2 mb-3">SIGN IN</button>
         <div className="forgot-link d-flex justify-content-center">

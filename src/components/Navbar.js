@@ -17,10 +17,10 @@ export default function Navbar({ setShowHelp }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3 mb-0 shadow-sm">
       <div className="container d-flex justify-content-between align-items-center">
-        <h1 style={{ color: 'black', userSelect: 'none' }}>
-          <span role="img" aria-label="task" style={{ border: "1px solid black", padding: '2px 6px', borderRadius:'4px', marginRight:'8px' }}>📝</span>
+        <h2 style={{ color: 'black', userSelect: 'none' }}>
+          <span role="img" aria-label="task" style={{ border: "0.5px solid black", padding: '2px 6px', borderRadius:'4px', marginRight:'7px' }}>📝</span>
           Task Manager
-        </h1>
+        </h2>
         <div>
           {token ? (
             <>

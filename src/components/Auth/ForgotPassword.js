@@ -1,4 +1,3 @@
-// frontend/src/components/auth/ForgotPassword.js
 import React, { useState } from 'react';
 import API from '../../api';
 import { toast } from 'react-toastify';
@@ -7,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function ForgotPassword() {
     try {
       await API.post('/auth/reset-password', { email, newPassword });
       toast.success('Password updated successfully!');
-      navigate('/login'); // redirect to login after success
+      navigate('/login'); // redirect after success
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to reset password');
     } finally {
@@ -50,9 +50,9 @@ export default function ForgotPassword() {
             autoFocus
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4" style={{ position: 'relative' }}>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             className="input-underline"
             placeholder="New Password"
             value={newPassword}
@@ -60,7 +60,25 @@ export default function ForgotPassword() {
             required
             minLength={6}
           />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              border: 'none',
+              background: 'transparent',
+              cursor: 'pointer',
+              fontSize: '1.2rem'
+            }}
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </button>
         </div>
+
         <button
           type="submit"
           className="fancy-btn w-100 mt-2 mb-3"
