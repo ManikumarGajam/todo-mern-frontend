@@ -76,6 +76,21 @@ export default function Signup() {
     <div className="auth-page">
       {!otpSent ? (
         <form onSubmit={handleSignup} className="frosted-card col-10 col-md-5 col-lg-4 mx-auto p-4">
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              type="button"
+              onClick={() => navigate('/signup')}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+              }}
+              aria-label="Cancel"
+            >
+              &times;
+            </button>
+          </div>
           <h2 className="login-title mb-4">Sign Up</h2>
           <input
             type="email"
