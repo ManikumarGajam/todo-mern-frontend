@@ -76,7 +76,7 @@ export default function Signup() {
       {!otpSent ? (
         <form onSubmit={handleSignup} className="frosted-card col-10 col-md-5 col-lg-4 mx-auto p-4">
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}></div>
-          <h2 className="login-title mb-4">Sign Up</h2>
+          <h3 className="login-title mb-4">Sign Up</h3>
           <input
             type="email"
             placeholder="Email"
@@ -110,7 +110,7 @@ export default function Signup() {
               }}
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
-              {showPassword ? '👁️' : '🙈' }
+              {showPassword ? '🙈' : '👁️' }
             </button>
           </div>
 
