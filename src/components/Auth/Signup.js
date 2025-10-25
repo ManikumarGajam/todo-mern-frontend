@@ -166,6 +166,12 @@ export default function Signup() {
           <button type="submit" className="fancy-btn w-100 mt-2 mb-2">
             Verify OTP
           </button>
+          <p className="text-center mt-3">
+            Already have an account?{' '}
+            <button type="button" className="btn btn-link p-0" onClick={() => navigate('/login')}>
+              Login here
+            </button>
+          </p>
           {timeLeft > 0 ? (
             <p className="text-center text-muted">
               Resend code in 0:{timeLeft < 10 ? `0${timeLeft}` : timeLeft}
