@@ -129,7 +129,7 @@ export default function Signup() {
         <form onSubmit={handleVerifyOtp} className="frosted-card col-10 col-md-5 col-lg-4 mx-auto p-4">
           <button
     type="button"
-    onClick={() => navigate('/signup')}
+    onClick={() => setOtpSent(false)}
     style={{
       position: 'absolute',
       top: '10px',
